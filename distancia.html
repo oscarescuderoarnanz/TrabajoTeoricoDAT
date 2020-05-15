@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<!-- Nombre: Oscar
+     Apellidos: Escudero Arnanz
+     Login: oscar-->
+
+<head>
+  <title>Practica 6.7 </title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./distancia.js"></script>
+  <style>
+    #map {
+      height: 800px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1>Práctica Final 5. Alarma de distancia</h1>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-3">
+            <h3>Mi casa: </h3>
+            <form class="form-group">
+              <label for="latitud01">Latitud:</label>
+              <input class="form-control" id="latitud01" name="latitud01" type="text" placeholder="Latitud">
+              <label for="longitud01">Longitud:</label>
+              <input class="form-control" id="longitud01" name="longitud01" type="text" placeholder="Longitud">
+              <button class="btn btn-primary" id="casa01">Marcar casa</button><br><br>
+            </form>
+            <button type="button" data-toggle="tooltip" title="yo02" data-placement="bottom" id="casa02">Marcar casa como posición actual</button>
+
+            <br><br>
+
+            <h3>Mi posición: </h3>
+            <form class="form-group">
+              <label for="latitud02">Latitud:</label>
+              <input class="form-control" id="latitud02" name="latitud02" type="text" placeholder="Latitud">
+              <label for="longitud02">Longitud:</label>
+              <input class="form-control" id="longitud02" name="longitud02" type="text" placeholder="Longitud">
+              <button class="btn btn-primary" id="yo01">Marcar Mi posición</button><br><br>
+            </form>
+            <button type="button" data-toggle="tooltip" title="yo02" data-placement="bottom" id="yo02">Marcar Mi posición actual</button>
+
+            <h3>Mi situación: </h3>
+            <div id="out"></div>
+            <br><br><br>
+            <button type="button" data-toggle="tooltip" title="olvidar" data-placement="bottom" id="boton02">Borrar datos almacenados</button>
+
+          </div>
+          <div class="col-xs-9">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

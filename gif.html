@@ -1,0 +1,59 @@
+<html>
+<head><title>GeoJson y Leaflet</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+
+<style>
+
+ 	#map {
+  	width: 700px;
+   	height: 600px; }
+
+	#div1 {
+  	font-size:48px;
+	}
+
+</style>
+</head>
+	<body>
+
+	<div id="map"></div>
+		<script>
+		var map = L.map('map',{center: [40.8021480 , -3.1393441],zoom: 6});
+
+		L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
+		var geojson = [{
+		"type": "Feature",
+		"geometry": {
+		"type": "Point",
+		"coordinates": [-3.9731700, 40.3828300]
+		  			},
+		 "properties": {
+		       "name": "España",
+			   "title": "España"
+		    		  }
+		}];
+
+		var LeafIcon = L.Icon.extend({
+		options: {
+			iconSize:     [50, 50],
+			iconAnchor:   [15, 30],
+			popupAnchor:  [0, -30]
+			}
+		});
+
+		var bandera = new LeafIcon({iconUrl: 'giff.gif'});
+
+		var banderapais = L.geoJSON(geojson, {
+			pointToLayer: function (feature, latlng) {
+				return L.marker(latlng, {icon: bandera});
+			},
+		});
+		map.addLayer(banderapais);
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+
+<head>
+  <title>GeoJson y Leaflet</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+  <script type="text/javascript" src="countries.js"></script>
+
+  <script src="leaflet-search-master\src\leaflet-search.js"></script>
+  <link rel="stylesheet" href="leaflet-search-master\src\leaflet-search.css" />
+
+  <style>
+    #map {
+      width: 700px;
+      height: 600px;
+    }
+
+    #div1 {
+      font-size: 48px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="map"></div>
+  <script>
+    function popup(feature, layer) {
+      if (feature.properties && feature.properties.NAME) {
+        layer.bindPopup(feature.properties.NAME);
+      }
+    }
+
+    function getColor(d) {
+      return d > 100000000 ? '#800026' :
+        d > 50000000 ? '#990606' :
+        d > 20000000 ? '#E31A1C' :
+        d > 10000000 ? '#FA5252' :
+        d > 5000000 ? '#FD8D3C' :
+        d > 2000000 ? '#FEB24C' :
+        d > 1000000 ? '#DEAC00' :
+        '#FFEDA0';
+    }
+
+    function style(feature) {
+      return {
+        fillColor: getColor(
+          feature.properties.POP_EST),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+      };
+    }
+
+    function style(feature) {
+      return {
+        fillColor: getColor(
+          feature.properties.POP_EST),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+      };
+    }
+    var latitud = 40.2;
+    var longitud = -3.6;
+    var zoom = 4;
+    var map = L.map('map').setView([latitud, longitud], zoom);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.geoJson(countries, {
+      style: style,
+      onEachFeature: popup
+    }).addTo(map);
+
+    //L.geoJson(countries).addTo(map);
+  </script>
+</body>
+
+</html>
