@@ -139,17 +139,7 @@ $(document).ready(function() {
     guardarCoordsPosActual("yo");
   });
 
-
-  map = L.map('map');
-  var myRenderer = L.canvas({
-    padding: 0.5
-  });
-  var line = L.polyline([40.283155, -3.819714], {
-    renderer: myRenderer
-  });
-  var circle = L.circle([40.283155, -3.819714], {
-    renderer: myRenderer
-  });
+  map = createmap();
   printMarcador(map, "casa", casaMarker);
   printMarcador(map, "yo", personaMarker);
   // Pinto un circulo de 1 km
@@ -160,9 +150,5 @@ $(document).ready(function() {
   $("#boton02").click(function() {
     deletepasswords();
   });
-
-  var circle = L.circleMarker([40.283155, -3.819714], {
-    radius: 50
-  }).addTo(map);
 
 });

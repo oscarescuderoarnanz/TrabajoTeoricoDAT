@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="es-ES">
 
 <head>
   <title>GeoJson y Leaflet</title>
@@ -64,18 +65,17 @@
     }).addTo(map);
 
     var countriesJS = L.geoJson(countries, {
-			onEachFeature: popup,
-			style: style
-		}).addTo(map);
+      onEachFeature: popup,
+      style: style
+    }).addTo(map);
 
-	var searchControl = new L.Control.Search({
-		layer: countriesJS,
-		propertyName: 'NAME',
-		circleLocation: true
-	});
+    var searchControl = new L.Control.Search({
+      layer: countriesJS,
+      propertyName: 'NAME',
+      circleLocation: true
+    });
 
-	map.addControl(searchControl);
-
+    map.addControl(searchControl);
   </script>
 </body>
 
