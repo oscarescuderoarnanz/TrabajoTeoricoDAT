@@ -46,8 +46,7 @@
       options: {
         iconSize: [50, 50],
         iconAnchor: [15, 30],
-        popupAnchor: [0, -30]
-      }
+        popupAnchor: [0, -30]      }
     });
 
     var bandera = new LeafIcon({
@@ -62,6 +61,9 @@
       },
     });
     map.addLayer(pais);
+
+    L.control.scale().addTo(map);
+    
   </script>
 </body>
 
