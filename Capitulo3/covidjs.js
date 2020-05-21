@@ -1,6 +1,6 @@
 'use strict'
 
-function createmap(){
+function createmap() {
   var latitud = 40;
   var longitud = -5;
   var zoom = 4;
@@ -35,7 +35,7 @@ function popup_covid(feature, layer) {
     "</td></tr><tr><td>Recuperados: " + feature.properties.Recovered +
     "</td></tr></table>", {
       minWidth: 150,
-      maxWidth: 200
+      maxWidth: 200,
     });
 };
 
